@@ -1,0 +1,33 @@
+head body{
+    margin: 0;
+}
+#header{
+    background-color: orangered;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.list-item{
+    margin: 0 8px;
+    display: inline-block;
+}
+#main{
+    margin-top: 15px;
+}
+.main-parent{
+    display: flex;
+}
+.main-chail{
+    flex: 1;
+}
+.chail-1{
+    margin: 0 5px;
+}
+.chail-2{
+    margin: 0 5px;
+}
+.chail-3{
+    
+}
