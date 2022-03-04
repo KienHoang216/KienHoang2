@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="BEM.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="toast"></div>
+    <div>
+        <button onclick="showSusscesToast();" class="btn btn--sussces">Done</button>
+        <button onclick="showErrorToast();" class="btn btn--danger">Stop</button>
+    </div>
+    <script>
+        function toast({
+            title = '', 
+            message = '', 
+            type = 'Info', 
+            duration = 3000 
+            }){
+                const main = document.getElementById('toast');
+                if(main){
+                    const toast = document.createElement('div');
+                    // auto remove
+                   
+                    const autoRemove = setTimeout(function() {
+                        main.removeChild(toast);
+                    }, duration + 1000);
+                    //remove when click
+                    toast.onclick = function(e){
+                        if(e.target.closest('.toast__close')){
+                            main.removeChild(toast);
+                            clearTimeout(autoRemove)
+                        }
+                    }
+                    const icons = {
+                        Sussces: 'fa-solid fa-circle-check',
+                        Info: 'fa-solid fa-circle-info',
+                        Warring: 'fa-solid fa-circle-exclamation',
+                        Error: 'fa-solid fa-circle-exclamation'
+                    };
+                    const icon = icons[type];
+
+                    toast.classList.add('toast', `toast--${type}`);
+                    toast.style.animation = `slideInLeft ease 0.3s, fadeOut linear 1s 3s forwards`
+                    toast.innerHTML = `
+                        <div class="toast__icon">
+                            <i class="${icon}"></i>
+                        
+                        </div>
+                        <div class="toast__body">
+                            <h3 class="toast__title">${title}</h3>
+                            <p class="toast__msg">${message}</p>
+                        </div>
+                        <div class="toast__close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    `;
+                    main.appendChild(toast); 
+                }
+        }
+        function showSusscesToast() {
+            toast({
+            title: 'Thành công!',
+            message:'HTML is the standard markup language for Web pages.',
+            type: 'Sussces',
+            duration: 5000
+        });
+        }
+        function showErrorToast() {
+            toast({
+            title: 'Thất bại',
+            message:'Thất bại, có lỗi xảy ra..',
+            type: 'Error',
+            duration: 5000
+        });
+        }
+    </script>
+</body>
+</html>
