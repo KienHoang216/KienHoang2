@@ -144,3 +144,52 @@ var memBer = 'name'
 
 // var result = course.coin > 0 ? `${course.coin} coins` : 'Miễn phí';
 // console.log(result)
+
+//                  vong la(loop)
+/*
+1. for lặp với điều kiện đúng
+2. for/in lặp qua key của đối tượng
+3. for/of lặp qua value của đối tượng
+4. while lặp khi điề kiện đúng
+5. do/while lặp ít nhất 1 lần,
+ sau đó lặp khi điều kiện đúng
+ */
+
+ // for
+ var myArray = [
+     'javascript',
+     'PHP',
+     'Ruby'
+ ]
+//  var arrayLenght = myArray.length
+//  for(var i = 0; i < arrayLenght; i++){
+//      console.log(myArray[i]);
+//  }
+
+//  for/in
+
+var myInfor = {
+    name: 'Kien Hoang',
+    age: 18,
+    address: 'Ha Nam'
+};
+// for (const key in myInfor) {
+//     console.log(myInfor[key]);
+// }
+//  for (const key in myArray) {
+//     console.log(myArray[key]);
+//  }
+
+//      for/of
+// for (const value of myArray) {
+//     console.log(value)
+// }
+
+
+
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+    if (i==5) {
+        break;
+    }
+}

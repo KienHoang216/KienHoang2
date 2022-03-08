@@ -1,0 +1,163 @@
+/* reset css */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.clear{
+    clear: both;
+}
+
+h1, h2, h3{
+    margin: 10px 0 10px 0;
+}
+
+p {
+    margin: 15px 0;
+    font-size: 15px;
+}
+
+#main {
+
+}
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46px;
+    background-color: #000;
+    z-index: 1;
+}
+#nav{
+    display: inline-block;
+}
+#nav > li{
+    display: inline-block;
+}
+#nav li{
+    position: relative;
+}
+#nav li:hover .subnav{
+    display: block;
+}
+#nav > li > a{
+    color: #fff;
+    text-transform: uppercase;
+}
+#nav, .subnav{
+    list-style-type: none;
+}
+#nav li a{
+    text-decoration: none;
+    line-height: 46px;
+    padding: 0 24px;
+    display: block;
+}
+#nav > li:hover > a,
+#nav .subnav li:hover a{
+    color: #000;
+    background-color: #ccc;
+}
+#nav .subnav{
+    display: none;
+    min-width: 160px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+#nav .subnav a{
+    color: #000;
+    padding: 0 16px;
+    line-height: 38px;
+}
+#header .headr_search:hover {
+    background-color: #f44336;
+    cursor: pointer;
+}
+#header .headr_search{
+    float: right;
+}
+#header .search-icon{
+    line-height: 46px;
+    color: #fff;
+    font-size: 20px;
+    padding: 0 17px;
+}
+
+#slider {
+    position: relative;
+    margin-top: 46px;
+    padding-top: 50%;
+    background: url('/w3_band/assets/img/chicago.jpg') top center / cover no-repeat;
+}
+
+.slider_text{
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    /* width: 100%;  để căn giữa thay cách trên*/
+    text-align: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+.slider_text-font{
+    font-weight: 200;
+    font-size: 24px;
+}
+#content {
+
+}
+
+.content_section{
+    width: 800px;
+    padding: 64px 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.content_heading{
+    letter-spacing: 4px;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+}
+.content_sub_heading{
+    /* margin: 15px 0 15px 0; */
+    font-size: 15px;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.6;
+}
+.about_text{
+    text-align: justify;
+    line-height: 1.4;
+}
+.content_member{
+    padding: 32px 0;
+}
+.member{
+    width: 33.33333%;
+    float: left;
+    text-align: center;    
+}
+
+.member img{
+    width: 60%;
+    vertical-align: middle;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#footer {
+    color: rgb(143, 131, 131);
+    text-align: center;
+    font-size: 15px;
+    padding: 64px 16px;
+}
