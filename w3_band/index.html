@@ -13,17 +13,17 @@
     <div id="main">
         <div id="header">
             <ul id="nav">
-                <li><a href="">Home</a></li>
-                <li><a href="">Band</a></li>
-                <li><a href="">Tour</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#band">Band</a></li>
+                <li><a href="#tours">Tour</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="">More
                     <i class="ti-angle-down"></i>
                 </a>
                     <ul class="subnav">
-                        <li><a href="">Merchandise</a></li>
-                        <li><a href="">Extras</a></li>
-                        <li><a href="">Media</a></li>
+                        <li><a href="#">Merchandise</a></li>
+                        <li><a href="#">Extras</a></li>
+                        <li><a href="#">Media</a></li>
                     </ul>
                 </li>
             </ul>
@@ -40,29 +40,29 @@
         </div>
        
         <div id="content">
-            <div class="content_section">
+            <div id="band" class="content_section">
                 <h2 class="content_heading">THE BAND</h2>
                 <p class="content_sub_heading">We love music</p>
                 <p class="about_text">
                     We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
-                <div class="content_member">
-                    <div class="member">
+                <div class="row content_member">
+                    <div class="col col-3 text-center">
                         <p>Name</p>
                         <img src="/w3_band/assets/img/bandmember.jpg" alt="member">
                     </div>
-                    <div class="member">
+                    <div class="col col-3 text-center">
                         <p>Name</p>
                         <img src="/w3_band/assets/img/bandmember.jpg" alt="member">
                     </div>
-                    <div class="member">
+                    <div class="col col-3 text-center">
                         <p>Name</p>
                         <img src="/w3_band/assets/img/bandmember.jpg" alt="member">
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
-            <div class="tour">
+            <div id="tours" class="tour">
                 <div class="content_section">
                     <h2 class="white-text content_heading">TOUR DATES</h2>
                     <p class="white-text content_sub_heading">Remember to book your tickets!</p>
@@ -78,54 +78,71 @@
                             <span class="white-text tickets-quatity">3</span>
                         </li>
                     </ul>
-                    <div class="places">
-                        <div class="places-item">
+                    <div class="row places">
+                        <div class="col col-3 ">
                             <img src="./assets/img/newyork.jpg" alt="newyork">
                             <div class="places-container">
                                 <p class="places-heading">New York</p>
                                 <p class="places-day">Fri 27 Nov 2016</p>
                                 <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button  class="buy-tickets js-getevent">Buy Tickets</button>
+                                <button  class="white-text btn js-getevent">Buy Tickets</button>
                             </div>
                         </div>
-                        <div class="places-item">
+                        <div class="col col-3 ">
                             <img src="./assets/img/paris.jpg" alt="paris">
                             <div class="places-container">
                                 <p class="places-heading">Paris</p>
                                 <p class="places-day">Sat 28 Nov 2016</p>
                                 <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button  class="buy-tickets js-getevent">Buy Tickets</button>
+                                <button  class="white-text btn js-getevent">Buy Tickets</button>
                             </div>
                         </div>
-                        <div class="places-item">
+                        <div class="col col-3 ">
                             <img src="./assets/img/sanfran.jpg" alt="sanfran.jpg">
                             <div class="places-container">
                                 <p class="places-heading">San Francisco</p>
                                 <p class="places-day">Sun 29 Nov 2016</p>
                                 <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                <button  class="buy-tickets js-getevent">Buy Tickets</button>
+                                <button  class="white-text btn js-getevent">Buy Tickets</button>
                             </div>
                         </div>
                         <div class="clear"></div>
                     </div>
                 </div>
             </div>
-            <div class="content_section">
+            <div id="contact" class="content_section">
                 <h2 class="content_heading">CONTACT</h2>
                 <p class="content_sub_heading">Fan? Drop a note!</p>
-                <div class="contact-container">
-                    <div class="contact-title">
+                <div class="row contact-container">
+                    <div class="col col-2 contact-info">
                         <i class="ti-location-pin"></i>Chicago, US
                         <br>
                         <i class="fa-solid fa-phone"></i>Phone: +00 151515
                         <br>
                         <i class="fa-solid fa-envelope"></i>Email: mail@mail.com
                     </div>
-                    <div class="contact-insert">
-
+                    <div class="col col-2 contact-form">
+                        <form action="">
+                            <div class="row">
+                                <div class="col col-2">
+                                    <input class="form-control"  type="text" required placeholder="Name">
+                                </div>
+                                <div class="col col-2">
+                                    <input  class="form-control" type="email" required placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-full">
+                                    <input class="form-control"  type="text" required placeholder="Message">
+                                </div>
+                            </div>
+                            <input class="white-text btn pull-right" type="submit" value="Send">
+                        </form>
                     </div>
                 </div>
-                <div class="clear"></div>
+            </div>
+            <div class="map">
+                <img class="col-full" src="./assets/img/map.jpg" alt="">
             </div>
         </div>
            
@@ -144,7 +161,7 @@
         </div>
     </div>
     <div class="modal js-open">
-        <div class="modal-container">
+        <div class="modal-container js-modal-container">
             <div class="white-text modal-close">X</div>
             <div class="white-text modal-header">
                 <i class="ti-bag"></i>
@@ -173,6 +190,7 @@
     <script>
         const buyBtns = document.querySelectorAll('.js-getevent');
         const modal = document.querySelector('.js-open');
+        const modalcontai = document.querySelector('.js-modal-container')
         const closes = document.querySelector('.modal-close');
         function showModal(){
             modal.classList.add('open');
@@ -184,6 +202,10 @@
             buyBtn.addEventListener('click', showModal)
         }
             closes.addEventListener('click', closeModal)
+            modal.addEventListener('click', closeModal)
+            modalcontai.addEventListener('click', function (event) {
+                event.stopPropagation()
+            })
     </script>
 </body>
 </html>
