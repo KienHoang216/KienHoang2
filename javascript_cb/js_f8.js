@@ -56,7 +56,7 @@ var languages = [
 //      1 tostring
 //console.log(languages.toString());
 //      2 join
-//console.log(languages.join(','));
+// console.log(languages.join('     '));
 //      3 pop
 //console.log(languages.pop());
 // xóa phần tử cuối mảng và trả về phần tử đã xóa
@@ -95,7 +95,7 @@ var languages = [
 // }
 // showMessage()
 // polyfill
-// var bee = 'tao ten la nam'.includes('m', 0);
+// var bee = 'tao ten la nam'.includes('t', 0);
 // console.log(bee)
 
 //          Object
@@ -105,8 +105,8 @@ var myInfo = {
     address: 'HN'
 };
 var memBer = 'name'
-// myInfo.myString = 't rat vui';
-// myInfo['email-gg'] = '@gmail.com';
+myInfo.myString = 't rat vui';
+myInfo['email-gg'] = '@gmail.com';
 // console.log(myInfo.name)
 // console.log(myInfo[memBer])
 // delete myInfo.address
@@ -187,9 +187,235 @@ var myInfor = {
 
 
 
-for (let i = 0; i < 10; i++) {
-    console.log(i);
-    if (i==5) {
-        break;
+// for (let i = 0; i < 10; i++) {
+//     console.log(i);
+//     if (i==5) {
+//         break;
+//     }
+// }
+
+
+/* mảng 2 */
+
+// var numberPhones = [
+//     088888,
+//     099999,
+//     011111,
+//     033333
+// ]
+
+
+// var num = numberPhones.find(function(numberPhone){
+//     return numberPhone === 011111
+// })
+// console.log(num)
+
+// find(tim 1), filter(tim nhieu)
+
+
+
+//map
+
+var users = [
+    {
+        name: 'Kien Hoang',
+        age: 18,
+        add: 'HN'
+    },
+    {
+        name: 'Huy Hoang',
+        age: 18,
+        add: 'TN'
+    },
+    {
+        name: 'Hoang Le',
+        age: 18,
+        add: 'ND'
+    },
+    {
+        name: 'Hoang NH',
+        age: 18,
+        add: 'TH'
     }
+]
+
+// var peson = users.map(function(pep){
+//     return {
+//         name: pep.name,
+//         age: pep.age,
+//         add: `Que Quan: ${pep.add}`,
+//         class: '70'
+//     }
+// })
+// console.log(peson)
+// var i =0;
+// var person = users.reduce(function(nums,pep){
+//    console.log(i++, nums ,pep)
+//     return  pep
+     
+// }, 0)
+
+// console.log(person)
+
+//flat- "lm phẳng" mảng
+// var depArray = [1, 2, [3, 4], 5, 6, [7, 8, 9]];
+
+// var flatArray = depArray.reduce(function (flatOutput, depitem) {
+//     return flatOutput.concat(depitem)
+// }, [])
+
+// console.log(flatArray)
+
+// Array.prototype.map2 = function(callback) {
+//     var output = []
+//     for (var i in this) {
+//         if (this.hasOwnProperty(i)) {
+//             var result = callback(this[i], i, this);
+//             output.push(result);   
+//         }
+//     }
+//     return output;
+// }
+// var namss = users.map2(function (params, index, array) {
+//     return params.age === 18;
+//     // console.log(params)
+//     // return {
+//     //     name: params.name,
+//     //     age: params.age,
+//     //     calss: '70'
+//     // }
+// })
+// console.log(namss)
+
+// var getBox = document.querySelector('.box')
+
+// var getSelect = document.getElementById('gener').value
+
+// console.log(getBox.innerText = 'new heading')
+// let array = ['javascript','PHP', 'Java']
+
+// const test = (...rest) => {
+//     for(var i = 0; i < rest.length; i++){
+//         console.log(rest[i]);
+//     }
+// }
+// test(...array)
+
+// var courseApi = ' http://localhost:3000/courses'
+
+// fetch(courseApi)
+//     .then((response) => response.json())
+//     .then((courses) =>{
+//         console.log(courses)
+        // const divElement = document.querySelector('.box');
+        // divElement.innerHTML = `<ul>
+        //                             <li>${courses}</li>
+        //                         </ul>`
+    // })
+
+// reduce
+const numbers = [1, 2, 3, 4, 5]
+Array.prototype.reduce2 = function (callback, result){
+    let i = 0;
+    if(arguments.length < 2){
+        i = 1;
+        result = this[0];
+    }
+    for( ; i < this.length; i++){
+        result = callback(result, this[i], i, this)
+    }
+    return result
 }
+const result = numbers.reduce2((total, Number) =>{
+    return total + Number
+}, 10)
+console.log(result)
+
+
+    // const courseApi = ' http://localhost:3000/courses'
+    
+    // var start = () => {
+    //     getCourses(renderCourses);
+    //     haldalCreate();
+    // }
+    
+    // start();
+    
+    
+    // function getCourses(callback)  {
+    //     fetch(courseApi)
+    //     .then((response) => response.json())
+    //     .then(callback);
+    // }
+    
+    // function createCourses(data, callback){
+    //     var options = {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data) 
+    //     }
+    //     fetch(courseApi, options )
+    //         .then((response) =>{
+    //             response.json();
+    //         })
+    //         .then(callback);
+    // }
+
+    // function handleDeleteCourse(id) {
+    //     console.log(id)
+    //     var options = {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     }
+    //     fetch(courseApi + '/' + id, options )
+    //         .then((response) =>{
+    //             response.json();
+    //         })
+    //         .then(()=>{
+    //             // getCourses(renderCourses);
+    //             var idCourse = document.querySelector('.course-id-' + id)
+    //             if(idCourse){
+    //                 idCourse.remove();
+    //             }
+    //         });
+    // }
+
+    
+    // function renderCourses (courses) {
+    //     const listCourses = document.querySelector('#list-couses')
+    //     var html = courses.map((course) => {
+    //         return `
+    //             <li class="course-id-${course.id}">
+    //             <h4>${course.name}</h4>
+    //             <p>${course.description}</p>
+    //             <button onclick="handleDeleteCourse(${course.id})">xoa</button>
+    //             </li>
+    //         `
+    //     })
+    //     listCourses.innerHTML = html.join('');
+    // }
+
+    
+    // function haldalCreate() {
+    //     var createBtn = document.querySelector('#create')
+    //     createBtn.onclick = function()  {
+    //         var name = document.querySelector('input[name="name"]').value
+    //         var description = document.querySelector('input[name="description"]').value
+    //         var formData = {
+    //             name: name,
+    //             description: description
+    //         }
+    //         if(name && description){
+    //             createCourses(formData, () =>{
+    //                 getCourses(renderCourses);
+    //             });
+    //         }
+           
+    //     }
+    // }
+
+    
