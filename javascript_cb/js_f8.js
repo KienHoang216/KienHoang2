@@ -314,108 +314,108 @@ var users = [
     // })
 
 // reduce
-const numbers = [1, 2, 3, 4, 5]
-Array.prototype.reduce2 = function (callback, result){
-    let i = 0;
-    if(arguments.length < 2){
-        i = 1;
-        result = this[0];
+// const numbers = [1, 2, 3, 4, 5]
+// Array.prototype.reduce2 = function (callback, result){
+//     let i = 0;
+//     if(arguments.length < 2){
+//         i = 1;
+//         result = this[0];
+//     }
+//     for( ; i < this.length; i++){
+//         result = callback(result, this[i], i, this)
+//     }
+//     return result
+// }
+// const result = numbers.reduce2((total, Number) =>{
+//     return total + Number
+// }, 10)
+// console.log(result)
+
+
+    const courseApi = ' http://localhost:3000/courses'
+    
+    var start = () => {
+        getCourses(renderCourses);
+        haldalCreate();
     }
-    for( ; i < this.length; i++){
-        result = callback(result, this[i], i, this)
+    
+    start();
+    
+    
+    function getCourses(callback)  {
+        fetch(courseApi)
+        .then((response) => response.json())
+        .then(callback);
     }
-    return result
-}
-const result = numbers.reduce2((total, Number) =>{
-    return total + Number
-}, 10)
-console.log(result)
+    
+    function createCourses(data, callback){
+        var options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) 
+        }
+        fetch(courseApi, options )
+            .then((response) =>{
+                response.json();
+            })
+            .then(callback);
+    }
 
-
-    // const courseApi = ' http://localhost:3000/courses'
-    
-    // var start = () => {
-    //     getCourses(renderCourses);
-    //     haldalCreate();
-    // }
-    
-    // start();
-    
-    
-    // function getCourses(callback)  {
-    //     fetch(courseApi)
-    //     .then((response) => response.json())
-    //     .then(callback);
-    // }
-    
-    // function createCourses(data, callback){
-    //     var options = {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data) 
-    //     }
-    //     fetch(courseApi, options )
-    //         .then((response) =>{
-    //             response.json();
-    //         })
-    //         .then(callback);
-    // }
-
-    // function handleDeleteCourse(id) {
-    //     console.log(id)
-    //     var options = {
-    //         method: 'DELETE',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }
-    //     fetch(courseApi + '/' + id, options )
-    //         .then((response) =>{
-    //             response.json();
-    //         })
-    //         .then(()=>{
-    //             // getCourses(renderCourses);
-    //             var idCourse = document.querySelector('.course-id-' + id)
-    //             if(idCourse){
-    //                 idCourse.remove();
-    //             }
-    //         });
-    // }
+    function handleDeleteCourse(id) {
+        console.log(id)
+        var options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        fetch(courseApi + '/' + id, options )
+            .then((response) =>{
+                response.json();
+            })
+            .then(()=>{
+                // getCourses(renderCourses);
+                var idCourse = document.querySelector('.course-id-' + id)
+                if(idCourse){
+                    idCourse.remove();
+                }
+            });
+    }
 
     
-    // function renderCourses (courses) {
-    //     const listCourses = document.querySelector('#list-couses')
-    //     var html = courses.map((course) => {
-    //         return `
-    //             <li class="course-id-${course.id}">
-    //             <h4>${course.name}</h4>
-    //             <p>${course.description}</p>
-    //             <button onclick="handleDeleteCourse(${course.id})">xoa</button>
-    //             </li>
-    //         `
-    //     })
-    //     listCourses.innerHTML = html.join('');
-    // }
+    function renderCourses (courses) {
+        const listCourses = document.querySelector('#list-couses')
+        var html = courses.map((course) => {
+            return `
+                <li class="course-id-${course.id}">
+                <h4>${course.name}</h4>
+                <p>${course.description}</p>
+                <button onclick="handleDeleteCourse(${course.id})">xoa</button>
+                </li>
+            `
+        })
+        listCourses.innerHTML = html.join('');
+    }
 
     
-    // function haldalCreate() {
-    //     var createBtn = document.querySelector('#create')
-    //     createBtn.onclick = function()  {
-    //         var name = document.querySelector('input[name="name"]').value
-    //         var description = document.querySelector('input[name="description"]').value
-    //         var formData = {
-    //             name: name,
-    //             description: description
-    //         }
-    //         if(name && description){
-    //             createCourses(formData, () =>{
-    //                 getCourses(renderCourses);
-    //             });
-    //         }
+    function haldalCreate() {
+        var createBtn = document.querySelector('#create')
+        createBtn.onclick = function()  {
+            var name = document.querySelector('input[name="name"]').value
+            var description = document.querySelector('input[name="description"]').value
+            var formData = {
+                name: name,
+                description: description
+            }
+            if(name && description){
+                createCourses(formData, () =>{
+                    getCourses(renderCourses);
+                });
+            }
            
-    //     }
-    // }
+        }
+    }
 
     
